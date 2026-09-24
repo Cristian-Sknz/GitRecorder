@@ -58,7 +58,8 @@ internal class State(private val git: Git, private val root: String) {
         val text = writer.toString()
         val file = tempText(text)
         try {
-            git.run("notes", "--ref=$NOTES_REF", "add", "-f", "-F", file.toString(), root)
+            git.run("notes", "--ref=$NOTES_REF", "add", "-f", "-F", file.toString(), root,
+                environment = botEnvironment())
             dirty = false
         } finally {
             Files.deleteIfExists(file)
@@ -69,7 +70,8 @@ internal class State(private val git: Git, private val root: String) {
         fun create(git: Git, root: String) {
             val file = tempText("version=1\n")
             try {
-                git.run("notes", "--ref=$NOTES_REF", "add", "-F", file.toString(), root)
+                git.run("notes", "--ref=$NOTES_REF", "add", "-F", file.toString(), root,
+                    environment = botEnvironment())
             } finally {
                 Files.deleteIfExists(file)
             }

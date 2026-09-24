@@ -132,12 +132,12 @@ internal class Destination private constructor(val path: Path) {
             }
             return open(path)
         }
-
-        private fun botEnvironment(): Map<String, String> = mapOf(
-            "GIT_AUTHOR_NAME" to "GitRecorder",
-            "GIT_AUTHOR_EMAIL" to "gitrecorder@localhost",
-            "GIT_COMMITTER_NAME" to "GitRecorder",
-            "GIT_COMMITTER_EMAIL" to "gitrecorder@localhost",
-        )
     }
 }
+
+internal fun botEnvironment(): Map<String, String> = mapOf(
+    "GIT_AUTHOR_NAME" to "GitRecorder",
+    "GIT_AUTHOR_EMAIL" to "gitrecorder@localhost",
+    "GIT_COMMITTER_NAME" to "GitRecorder",
+    "GIT_COMMITTER_EMAIL" to "gitrecorder@localhost",
+)
