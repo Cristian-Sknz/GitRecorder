@@ -1,0 +1,8 @@
+.gradle/
+.kotlin/
+.idea/
+build/
+bin/
+.gitrecorder-store/
+out/
+*.iml
